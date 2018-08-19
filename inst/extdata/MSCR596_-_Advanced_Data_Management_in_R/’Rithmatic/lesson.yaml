@@ -1,0 +1,223 @@
+- Class: meta
+  Course: MSCR596 - Advanced Data Management in R
+  Lesson: Rithmatic
+  Author: Beau B. Bruce
+  Type: Standard
+  Organization: Emory University
+  Version: 2.4.3
+
+- Class: text
+  Output: One of the best ways to start learning to use
+    the R console is as a calculator. Press return any
+    time you see ... to continue.
+
+- Class: cmd_question
+  Output: |-
+    The > character you see below is R waiting for you to say something to it.
+    It is the "prompt" of the R console.
+    Try typing:
+
+    2 + 2
+
+    to add together two and two.
+  CorrectAnswer: 2 + 2
+  AnswerTests: omnitest(correctExpr='2 + 2')
+  Hint: |-
+    Just type:
+
+    2 + 2
+
+- Class: cmd_question
+  Output: |-
+    Did you notice that R responded saying
+
+    [1] 4
+
+    ?
+
+    That was R's answer to your instructions for R to add 2 + 2.
+    What does the [1] mean?  Don't worry about it for now, it will
+    become clearer at an appropriate time.  For now, just note R
+    gives you the appropriate answer next to it: 4.
+
+    Now try subtraction:
+
+    20 - 4.2
+  CorrectAnswer: 20 - 4.2
+  AnswerTests: omnitest(correctExpr='20 - 4.2')
+  Hint: |-
+    Just type:
+
+    20 - 4.2
+
+- Class: cmd_question
+  Output: |-
+    Why stop with just one subtraction, try:
+
+    100 - 20 - 5
+  CorrectAnswer: 100 - 20 - 5
+  AnswerTests: omnitest(correctExpr='100 - 20 - 5')
+  Hint: |-
+    Just type:
+
+    100 - 20 - 5
+
+- Class: cmd_question
+  Output: |-
+    OK, now multiplication:
+
+    5 * 4 * 3 * 2 * 1
+  CorrectAnswer: 5 * 4 * 3 * 2 * 1
+  AnswerTests: omnitest(correctExpr='5 * 4 * 3 * 2 * 1')
+  Hint: |-
+    Just type:
+
+    100 - 20 - 5
+
+- Class: cmd_question
+  Output: |-
+    How about division?
+
+    25 / 5
+  CorrectAnswer: 25 / 5
+  AnswerTests: omnitest(correctExpr='25 / 5')
+  Hint: |-
+    Just type:
+
+    25 / 5
+
+- Class: play_question
+  Output: |-
+    Now is a time for you to extend your knowledge by
+    exploring and experimenting some yourself.  You are now
+    in play mode.  You can try any R command you like in this
+    mode and swirl will not worry about it.
+
+    I want you to figure out what R says when you divide a
+    number by zero.  When you are done experimenting type
+
+    nxt()
+
+    and I ask you about what you found out.
+
+- Class: cmd_question
+  Output: |-
+    So what do you get when in R when you divide a number
+    by zero?
+  CorrectAnswer: Inf, -Inf, NaN
+  AnswerTests: any_of_exprs('Inf', '-Inf', 'NaN')
+  Hint: |-
+    Hint: DON'T put the [1] as part of your answer, and don't forget
+    that R is case sensitive.  Upper vs. lowercase letters matter.
+    If you still aren't sure then, type play() and then try
+    typing something like 5 / 0.
+
+- Class: play_question
+  Output: |-
+    That was good work, but did you realize there were three possible
+    answers?  Did you try a positive number, a negative number, and zero
+    itself divided by zero?
+
+    As you learn to program you'll find it is helpful to try to think of
+    possible edge cases that might give you different results than you expect.
+    It'll also be good to know the possiblilities, because if you see them
+    in your data management you'll know you probably divided by zero somewhere
+    without expecting it.
+
+    So now give the other cases a try, and when you are done type nxt() to
+    tell me what 0 / 0 is according to R.
+
+- Class: cmd_question
+  Output: |-
+    So what do you get when in R when you divide zero
+    by zero?
+  CorrectAnswer: NaN
+  AnswerTests: omnitest(correctExpr = NaN)
+  Hint: |-
+    If you didn't figure it out, did you type 0 / 0?
+    Don't forget that R is case-sensitive.
+    You didn't type [1] as part of your answer did you?
+    You can type play() and try to figure it out again.
+
+- Class: play_question
+  Output: |-
+    By the way, NaN means "not a number."  It's another way of saying that
+    mathematical opeperation is "undefined."
+
+    Now I want you to try to figure something else out.  What does the
+    %% operator do?  It works like +, -, *, or / does with two numbers.
+    For example:
+
+    12 %% 5
+
+    For now limit yourself to the left number being larger than the right and
+    only use whole numbers.  Play for a while until you are pretty sure you have
+    it right and then I'll ask you a few questions to make sure you know how it
+    works.
+
+    So play now and try to figure out how it works, and
+    when you are done type nxt().
+    When you come back you'll first have to tell me what 12 %% 5 is, but
+    I'm going to ask you to tell me what some others are without playing more!
+
+- Class: cmd_question
+  Output: |-
+    So what is 12 %% 5?
+  CorrectAnswer: 2
+  AnswerTests: omnitest(correctExpr = 2, strict = TRUE)
+  Hint: |-
+    Did you play long enough?  If not, type play() to go back to play mode.
+
+- Class: cmd_question
+  Output: |-
+    What is 13 %% 3? (Don't just play and ask R!  Use what you figured out while
+    you played before and only play more if you get it wrong!)
+  CorrectAnswer: 1
+  AnswerTests: omnitest(correctExpr = 1, strict = TRUE)
+  Hint: |-
+    Did you play long enough?
+
+- Class: cmd_question
+  Output: |-
+    What is 8 %% 8? (Don't just play and ask R!  Use what you figured out while
+    you played before and only play more if you get it wrong!)
+  CorrectAnswer: 0
+  AnswerTests: omnitest(correctExpr =  0, strict = TRUE)
+  Hint: |-
+    It gives some aspect of "long" division.
+
+- Class: cmd_question
+  Output: |-
+    OK - last one. Even though I only asked you to use integers when you played
+    it works the same for fractional values... so what is 7.1 %% 0.2 ?
+  CorrectAnswer: 0.1
+  AnswerTests: omnitest(correctExpr =  0.1, strict = TRUE)
+  Hint: |-
+    It still finds the same aspect of "long" division.
+
+- Class: text
+  Output: |-
+    Great you figured out that the function finds the remainder of division!
+    This function is also called the modulo operator.  Where in daily life
+    do you use this operator quite frequently (probably without much thought!)?
+
+    Finally, think about how you use this operator to generate a "recipe" or pair of
+    "formulas" that would tell you into which row and column to place each of
+    a list of 12 numbers if you wanted to convert it to a matrix with three rows
+    of four numbers (fill first row left-to-right, then next row left-to-right, etc.)
+    Hint: use the index (position) of the number in the list, the modulo operator,
+    and some simple arithmatic.  Come prepared to discuss in class.
+
+- Class: mult_question
+  Output: Respond Yes to send your instructor a log of your progress now
+    via Google Forms.
+  AnswerChoices: Yes;No
+  CorrectAnswer: Yes
+  AnswerTests: submit_log()
+  Hint: Respond Yes.
+
+- Class: text
+  Output: |-
+    Great you've finished the first lesson!  You pressed the Submit button
+    in Google Forms right?  And if your submission failed via Google Forms
+    for any reason, please see above for instructions. Ready for more?

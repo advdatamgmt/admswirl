@@ -1,0 +1,14 @@
+Package: admswirl
+Type: Package
+Title: Swirl Exercises for Advanced Data Management in R
+Version: 0.1.0
+Author: Beau B. Bruce
+Maintainer: Beau B. Bruce <bbbruce@emory.edu>
+Description: This package provides swirl exercises for the course
+    MSCR 596 - Advanced Data Management in R.
+Imports: 
+    swirl
+License: GPL >= 3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0
