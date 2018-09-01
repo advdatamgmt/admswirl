@@ -1,6 +1,6 @@
 - Class: meta
   Course: MSCR596 - Advanced Data Management in R
-  Lesson: Rithmatic
+  Lesson: 'Rithmatic
   Author: Beau B. Bruce
   Type: Standard
   Organization: Emory University
@@ -211,7 +211,7 @@
 - Class: mult_question
   Output: Respond Yes to send your instructor a log of your progress now
     via Google Forms.
-  AnswerChoices: Yes;No
+  AnswerChoices: Yes;Yes
   CorrectAnswer: Yes
   AnswerTests: submit_log()
   Hint: Respond Yes.

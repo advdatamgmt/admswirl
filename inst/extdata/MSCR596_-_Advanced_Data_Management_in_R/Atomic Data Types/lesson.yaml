@@ -1,0 +1,421 @@
+- Class: meta
+  Course: MSCR596 - Advanced Data Management in R
+  Lesson: Atomic Data Types
+  Author: Beau B. Bruce
+  Type: Standard
+  Organization: Emory University
+  Version: 2.4.3
+
+- Class: text
+  Output: |-
+    In this exercise we will explore three
+    important atomic data types:
+    numeric, logical, and character.
+
+- Class: cmd_question
+  Output: |-
+    You have already met numeric in the Rithmatic exercise.
+    How do you know? Just ask R, type:
+
+    is.numeric(1)
+  CorrectAnswer: is.numeric(1)
+  AnswerTests: omnitest(correctExpr='is.numeric(1)')
+  Hint: |-
+    Just type:
+
+    is.numeric(1)
+
+- Class: cmd_question
+  Output: |-
+    The is.numeric function asks R whether or not
+    something is numeric.  Try:
+
+    is.numeric(2 + 2)
+  CorrectAnswer: is.numeric(2 + 2)
+  AnswerTests: omnitest(correctExpr='is.numeric(2 + 2)')
+  Hint: |-
+    Just type:
+
+    is.numeric(2 + 2)
+
+- Class: cmd_question
+  Output: |-
+    I guess you noticed that R responds TRUE when you ask
+    it whether something is a numeric, and it is indeed a numeric datatype.
+
+    TRUE is R's word for "yes." TRUE is a different data type from
+    numeric. How do you know? Type what you think you should to test whether
+    TRUE is numeric or not.
+
+    Don't forget that R is case-sensitive,
+    i.e., upper and lowercase matter.
+  CorrectAnswer: is.numeric(TRUE)
+  AnswerTests: omnitest(correctExpr='is.numeric(TRUE)')
+  Hint: |-
+    Does is.numeric(TRUE) seem right?
+
+- Class: cmd_question
+  Output: |-
+    So now you got back FALSE.  That is R's word for
+    "no".  TRUE and FALSE are the only two values for the logical
+    data type.  Try:
+
+    is.logical(FALSE).
+  CorrectAnswer: is.logical(FALSE)
+  AnswerTests: omnitest(correctExpr='is.logical(FALSE)')
+  Hint: |-
+    Just type:
+
+    is.logical(FALSE)
+
+- Class: cmd_question
+  Output: |-
+    Now try is.logical(TRUE), but think for a moment
+    what you expect to see before you do.
+  CorrectAnswer: is.logical(TRUE)
+  AnswerTests: omnitest(correctExpr='is.logical(TRUE)')
+  Hint: |-
+    Just type:
+
+    is.logical(TRUE)
+
+
+- Class: cmd_question
+  Output: |-
+    R will let you use T for TRUE and F for FALSE, but
+    please don't do that in this class.  It makes your code
+    harder to read for others, just as it made it harder
+    for your 5th grade teacher to grade your test.
+    However, I want you to know in case you see
+    someone else do it or if your instructor is
+    being lazy one day at the console.
+    (However, your instructor always types
+    it out completely in his production code.)
+
+    So, to solidify this concept - think about what you'd
+    get back if you wrote:
+
+    is.logical(2)
+
+    Then, try it!
+  CorrectAnswer: is.logical(2)
+  AnswerTests: omnitest(correctExpr='is.logical(2)')
+  Hint: |-
+    Just type:
+
+    is.logical(2)
+
+- Class: cmd_question
+  Output: |-
+    OK, the last important type you should know about for
+    now is character.  The character type is used to represent text,
+    or what is more commonly called character strings or
+    strings in computer lingo. You know you
+    have a string if it is enclosed in quotes.
+
+    Those quotes can be either double (")
+    or single ('). In this class we will favor
+    the double quotes for consistency,
+    but there are instances, as we will see,
+    where it is easiest to use the other type.
+
+    Try:
+
+    "Hello, my name is R"
+  CorrectAnswer: "\"Hello, my name is R\""
+  AnswerTests: omnitest(correctExpr='"Hello, my name is R"', strict = TRUE)
+  Hint: |-
+    Just type:
+
+    "Hello, my name is R"
+
+- Class: cmd_question
+  Output: |-
+    Try:
+
+    'What is your name?'
+  CorrectAnswer: "'What is your name?'"
+  AnswerTests: omnitest(correctExpr="'What is your name?'", strict = TRUE)
+  Hint: |-
+    Just type:
+
+    'What is your name?'
+
+- Class: cmd_question
+  Output: |-
+    Since the is.logical function tests whether something is of the logical data
+    type, and is.numeric tests whether something is of the numeric data type,
+    what function do you think tests whether something
+    is of the type character?
+
+    Go for it!  Test whether
+
+    "Hi!"
+
+    is a character type.
+  CorrectAnswer: is.character("Hi!")
+  AnswerTests: omnitest(correctExpr="is.character(\"Hi!\")")
+  Hint: |-
+    Does
+
+    is.character("Hi!")
+
+    seem right?
+
+- Class: play_question
+  Output: Now it is time to try out your skills.  You are again in play mode
+    and I want you to figure out which data type the value that is returned
+    when you divide another number by zero.  (Don't forget to type nxt() when
+    you are ready to answer.)
+
+- Class: mult_question
+  Output: |-
+    So, you think you have it figured out?  If not, you can always
+    type play() to keep working at it.  Otherwise, choose the right answer:
+  AnswerChoices: character;logical;numeric
+  AnswerTests: omnitest(correctVal="numeric")
+  CorrectAnswer: numeric
+  Hint: While playing did you try each of the type testing functions
+    (is.character, is.logical, and is.numeric) on a
+    number divided by zero?
+
+- Class: cmd_question
+  Output: |-
+    You know what is.character(2) will return? FALSE, right?
+    What if you wanted to use is.character and the number 2 together,
+    but get TRUE instead (i.e., what would you need to add surrounding the number
+    2 to get TRUE)?  Type the full expression using is.character and the
+    number 2 that returns TRUE.
+  CorrectAnswer: is.character("Hi!")
+  AnswerTests: omnitest(correctExpr='is.character("2")')
+  Hint: |-
+    What do you enclose a group of characters in to make R recognize it
+    as a character type?
+
+- Class: play_question
+  Output: |-
+    Useful operators for the logical data type include &, |, and !.
+    They are called the logical operators.
+    The | is often called a pipe character.
+    You’ll usually find it above the backslash (i.e., \) on the right
+    side of your your keyboard.  Let's try them out, starting with the !
+    operator.  You are in play mode - figure out what R evaluates
+
+    !TRUE
+
+    and
+
+    !FALSE
+
+    as and then come back answer some questions about it.
+    (Remember to type nxt() to return.)
+
+- Class: mult_question
+  Output: So - what does the ! operator return when applied to TRUE?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: FALSE
+  AnswerTests: omnitest(correctVal="FALSE")
+  Hint: Did you play enough?
+
+- Class: mult_question
+  Output: So - what does the ! operator return when applied to FALSE?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: TRUE
+  AnswerTests: omnitest(correctVal="TRUE")
+  Hint: Did you play enough?
+
+- Class: play_question
+  Output: |-
+    Great work!  The ! operator returns the opposite value when applied to
+    TRUE or FALSE.  Most of the time you'll hear ! called the "not" operator.
+
+    So, now you are in play mode and I want you to figure out what both the
+    & and the | operators do.  Try them with every combination of TRUE and FALSE
+    on each side (i.e., TRUE/TRUE, TRUE/FALSE, FALSE/TRUE, FALSE/FALSE) in a
+    pattern like this:
+
+    TRUE & FALSE
+
+    FALSE | FALSE
+
+    Can you figure out what each does?
+
+    (Remember to type nxt() to return.)
+
+- Class: mult_question
+  Output: What is TRUE & FALSE?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: FALSE
+  AnswerTests: omnitest(correctVal="FALSE")
+  Hint: Did you play enough?
+
+- Class: mult_question
+  Output: What is TRUE | FALSE?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: TRUE
+  AnswerTests: omnitest(correctVal="TRUE")
+  Hint: Did you play enough?
+
+- Class: mult_question
+  Output: What is TRUE | TRUE?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: TRUE
+  AnswerTests: omnitest(correctVal="TRUE")
+  Hint: Did you play enough?
+
+- Class: mult_question
+  Output: |-
+    If you had to pick a name for the operator &, what would you choose?
+    Think about it in terms of classical logic (hey, we are using the logical
+    data type!): If statement A is TRUE & statement B is FALSE,
+    then A ___ B together are FALSE.  Where ___ is the name of the operator.
+  AnswerChoices: and;not;or
+  CorrectAnswer: "and"
+  AnswerTests: omnitest(correctVal="and")
+  Hint: Well, you don't think the answer is is "not", right? :)
+
+- Class: mult_question
+  Output: |-
+    If you had to pick a name for the operator |, what would you choose?
+    Think about it in terms of classical logic (hey, we are using the logical
+    data type!): If statement A is TRUE | statement B is FALSE,
+    then A ___ B is TRUE.  Where ___ is the name of the operator.
+  AnswerChoices: and;not;or
+  CorrectAnswer: "or"
+  AnswerTests: omnitest(correctVal="or")
+  Hint: Well, you don't think the answer is is "not", right? :)
+
+- Class: text
+  Output: |-
+    You may have been surprised that TRUE | TRUE is TRUE, because in English
+    the statement is ambiguous.  We often say things like if A is true or
+    B is true (or both) to make ourselves clear, but in R (and in mathematics
+    in general) the "or" operator means or in the inclusive sense, i.e.,
+    if either A or B is TRUE or both are TRUE, then the result in TRUE.
+
+- Class: text
+  Output: |-
+    The ! operator is different from the others you have seen so far in that it
+    only takes one input, or argument, whereas the others take two.
+    One argument operators are called unitary while those that take two are
+    called binary. Those that take more than two are called multiary or
+    multary. So ! is unitary while +, &, and all the others you have learned
+    are binary. We have not yet met any multiary operators:
+    2 + 2 + 3 is just using a binary operator twice.
+
+- Class: text
+  Output: |-
+    Another group of useful binary operators for all the atomic data types
+    are the six relational operators: <, >, <=, >=, ==, and !=. Most situations
+    make sense, especially with numerics, when you know their meaning.
+
+    The symbol < means less than, and > means greater than.  So, 5 > 6 is FALSE,
+    and 5 < 6 is TRUE.  The symbol <= means less than or equal to.
+    So, 5 <= 5 is TRUE as is 5 <= 6.
+
+    Two equal signs without any space between them == is the test of whether
+    two things are equal or not.  A single equals sign = means something
+    different, so be careful or you get an error message from your code or worse
+    an unsuspeted logical error (a "bug") that may surprise you!
+    The symbol != tests whether two things are not equal.
+
+    So, 3 == 3 is TRUE and 2 != 3 is FALSE.
+
+- Class: mult_question
+  Output: Let's test your knowledge.  What is 5 == 10?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: FALSE
+  AnswerTests: omnitest(correctVal="FALSE")
+  Hint: If it isn't one then it is the other, right? :)
+
+- Class: mult_question
+  Output: Let's test your knowledge.  What is 8 > 10?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: FALSE
+  AnswerTests: omnitest(correctVal="FALSE")
+  Hint: If it isn't one then it is the other, right? :)
+
+- Class: mult_question
+  Output: Let's test your knowledge.  What is 100 < 101?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: TRUE
+  AnswerTests: omnitest(correctVal="TRUE")
+  Hint: If it isn't one then it is the other, right? :)
+
+- Class: mult_question
+  Output: |-
+    OK, you clearly have it.  What about for characters?
+
+    What do you think
+
+    "a" < "b"
+
+    is?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: TRUE
+  AnswerTests: omnitest(correctVal="TRUE")
+  Hint: If it isn't one then it is the other, right? :)
+
+- Class: mult_question
+  Output: |-
+    So, that made sense but "B" is less than "a" does that
+    make sense?  Perhaps not, but the capitals all are less than
+    lower case and most (if not all) punctuation is less than upper case.
+
+    So what is
+
+    "b" > "!"
+
+    ?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: TRUE
+  AnswerTests: omnitest(correctVal="TRUE")
+  Hint: If it isn't one then it is the other, right? :)
+
+- Class: mult_question
+  Output: |-
+    So, that made sense but "B" is less than "a" does that
+    make sense?  Perhaps not, but the capitals all are less than
+    lower case and most (if not all) punctuation is less than upper case.
+
+    So what is
+
+    "A" == "a"
+
+    ?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: FALSE
+  AnswerTests: omnitest(correctVal="FALSE")
+  Hint: If it isn't one then it is the other, right? :)
+
+- Class: mult_question
+  Output: |-
+    Logicals can also be compared.  What do you think
+
+    TRUE > FALSE
+
+    is?
+  AnswerChoices: TRUE;FALSE
+  CorrectAnswer: TRUE
+  AnswerTests: omnitest(correctVal="TRUE")
+  Hint: If it isn't one then it is the other, right? :)
+
+- Class: text
+  Output: |-
+    Indeed, truth is higher than falsity!  Now you have a good sense of how
+    the relational operators work on all the data types we've learned about.
+
+- Class: mult_question
+  Output: Respond Yes to send your instructor a log of your progress now
+    via Google Forms.
+  AnswerChoices: Yes;Yes
+  CorrectAnswer: Yes
+  AnswerTests: submit_log()
+  Hint: Respond Yes.
+
+- Class: text
+  Output: |-
+    Great you've finished the lesson!  You pressed the Submit button
+    in Google Forms, right?  And if your submission failed via Google Forms
+    for any reason, please see above for instructions of what to do.
+    Ready for more?

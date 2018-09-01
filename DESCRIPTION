@@ -6,7 +6,8 @@ Author: Beau B. Bruce
 Maintainer: Beau B. Bruce <bbbruce@emory.edu>
 Description: This package provides swirl exercises for the course
     MSCR 596 - Advanced Data Management in R.
-Imports: 
+Imports:
+    base64enc,
     swirl
 License: GPL >= 3
 Encoding: UTF-8
