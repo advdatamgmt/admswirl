@@ -1,0 +1,531 @@
+- Class: meta
+  Course: MSCR596 - Advanced Data Management in R
+  Lesson: Rcel, Part 1
+  Author: Beau B. Bruce
+  Type: Standard
+  Organization: Emory University
+  Version: 2.4.3
+
+- Class: text
+  Output: |-
+    Once you learn R well, you will likely find that you do not tend to use
+    spreadsheets like Microsoft Excel as much for common tasks that you might
+    have previously done in spreadsheet software. We will see a spreadsheet-like
+    structure develop as we work with the composite data types of vector,
+    factor, list, and data.frame.
+
+    These are foundational exercises so do not just type mindlessly at the R
+    console to get the "right" answer,
+    but also try to be sure you understand what is happening.
+
+    This lession will cover only cover the vector and factor data types.
+
+- Class: cmd_question
+  Output: |-
+    A vector is constructed using a function called simply c.
+    Note that c is lower case which, as you now know,
+    matters because R is a case-sensitive language.
+
+    If you type a capital, or upper case, C instead of lower case c
+    then R will not know what you mean.
+
+    Try typing:
+
+    c(1, 2, 3)
+  CorrectAnswer: c(1, 2, 3)
+  AnswerTests: omnitest(correctExpr='c(1, 2, 3)')
+  Hint: |-
+    Just type:
+
+    c(1, 2, 3)
+
+- Class: cmd_question
+  Output: |-
+    A convenient way to make a vector of consecutive numbers is to use a colon
+    (:) between them them like this
+
+    1:5
+
+    Try it now.
+  CorrectAnswer: 1:5
+  AnswerTests: omnitest(correctExpr='1:5')
+  Hint: |-
+    Just type:
+
+    1:5
+
+- Class: cmd_question
+  Output: |-
+    Vectors can only be made of values from the same atomic type.  So, we can
+    also make character vectors and logical vectors, like this:
+
+    c("a", "b", "c")
+
+    Now, you try to make a *logical* vector.
+  CorrectAnswer: c(TRUE, FALSE, TRUE)
+  AnswerTests: is_logical_vector()
+  Hint: |-
+    Use the function c, TRUE, and FALSE.
+
+- Class: cmd_question
+  Output: |-
+    The is.numeric, is.character, and is.logical functions that you learned
+    about in the Atomic Data Types lesson work on vectors too.  Try to use
+    one of those functions to test whether a vector is of a given type.
+  CorrectAnswer: is.numeric(c("a", "b"))
+  AnswerTests: is_testing_vector_type()
+  Hint: |-
+    Use the function c and one of these functions:
+    is.numeric, is.character, or is.logical.
+
+- Class: cmd_question
+  Output: |-
+    By now you are probably pretty tired of typing things like
+    c(TRUE,TRUE,TRUE,FALSE,TRUE) and wonder if there is a way you could
+    save things like that for later use. There is! It is called assignment.
+
+    We can assign a name to one of our vectors (or any R object).
+    We do this using the <- operator (that is made of two characters,
+    the less than symbol, <, and a hyphen, -). Think of it as an arrow that
+    directs the value on the right hand side of <- into the name on the
+    left hand side.
+
+    Type the following to try it:
+    x <- c(TRUE, TRUE, TRUE, FALSE, TRUE)
+  CorrectAnswer: x <- c(TRUE, TRUE, TRUE, FALSE, TRUE)
+  AnswerTests: omnitest(correctExpr = 'x <- c(TRUE, TRUE, TRUE, FALSE, TRUE)')
+  Hint: |-
+    Type x <- c(TRUE, TRUE, TRUE, FALSE, TRUE)
+
+- Class: cmd_question
+  Output: |-
+    Now you can use the name x in place of the vector.  Try:
+
+    is.logical(x)
+  CorrectAnswer: is.logical(x)
+  AnswerTests: omnitest(correctExpr = 'is.logical(x)')
+  Hint: |-
+    Type is.logical(x)
+
+- Class: cmd_question
+  Output: |-
+    It works just as you expect and returns TRUE, right?
+
+    The name x is just one of a nearly infinite number of names,
+    but R does have some rules for valid names:
+
+    A valid name can only consist of:
+
+        letters,
+
+        numbers,
+
+        the dot or period character (.), and
+
+        the underscore or underline character (_),
+
+    But it can only start with:
+
+        a letter, or
+
+        the dot not followed by a number.
+
+    You can see what the name x contains by typing that name.  Try it now,
+    just type x.
+  CorrectAnswer: x
+  AnswerTests: omnitest(correctExpr = 'x')
+  Hint: |-
+    Type x
+
+- Class: cmd_question
+  Output: |-
+    When you name something the same thing, it is replaced.  Type:
+
+    x <- c(1, 2, 3)
+  CorrectAnswer: x <- c(1, 2, 3)
+  AnswerTests: omnitest(correctExpr = 'x <- c(1, 2, 3)')
+  Hint: |-
+    Type x <- c(1, 2, 3)
+
+- Class: cmd_question
+  Output: |-
+    Now look at what is in the variable x.
+  CorrectAnswer: x
+  AnswerTests: omnitest(correctExpr = 'x')
+  Hint: |-
+    Type x
+
+- Class: cmd_question
+  Output: |-
+    As you can see, x now contains that numeric vector.  The name can stand in
+    for the object that is assigned to it anywhere that the object can be used,
+    even in assignment.  Try it now by assigning x to y.
+  CorrectAnswer: y <- x
+  AnswerTests: omnitest(correctExpr = 'y <- x')
+  Hint: |-
+    How about y <- x ?
+
+- Class: cmd_question
+  Output: |-
+    Now look at what is in the variable y.
+  CorrectAnswer: y
+  AnswerTests: omnitest(correctExpr = 'y')
+  Hint: |-
+    Type y
+
+- Class: play_question
+  Output: |-
+    Finally, you can not use one of the reserved words as names. You have seen a
+    few of these already, e.g., TRUE, NaN. It could really wreck havoc on R if
+    you could change the value of those names.  Try to assign 5 to the name
+    TRUE. (You are in play mode - type nxt() after you try it.)
+
+- Class: text
+  Output: |-
+    Hopefully, the error makes a little sense.  You have an invalid left-hand
+    side (i.e., TRUE) for the assignment.
+
+- Class: cmd_question
+  Output: |-
+    OK, it is time to turn to a new data type: factor.
+
+    A factor is similar to a vector, but is used to represent a nominal or
+    ordinal variable. This allows R to automatically give you back the right
+    statistics for something that is not numeric. For now, we will use the
+    summary function to show the difference.  Let's start by assigning the
+    following to c(1, 1, 2, 3, 1) to x
+  CorrectAnswer: x <- c(1, 1, 2, 3, 1)
+  AnswerTests: omnitest(correctExpr = 'x <- c(1, 1, 2, 3, 1)')
+  Hint: |-
+    Type x <- c(1, 1, 2, 3, 1)
+
+- Class: cmd_question
+  Output: |-
+    Now let's create a factor version of x in the variable y like this:
+
+    y <- factor(x)
+  CorrectAnswer: y <- factor(x)
+  AnswerTests: omnitest(correctExpr = 'y <- factor(x)')
+  Hint: |-
+    Type y <- factor(x)
+
+- Class: cmd_question
+  Output: |-
+    Now apply the summary function to x, like this:
+
+    summary(x)
+  CorrectAnswer: summary(x)
+  AnswerTests: omnitest(correctExpr = 'summary(x)')
+  Hint: |-
+    Type summary(x)
+
+- Class: cmd_question
+  Output: |-
+    Do the same for y.
+  CorrectAnswer: summary(y)
+  AnswerTests: omnitest(correctExpr = 'summary(y)')
+  Hint: |-
+    Type summary(y)
+
+- Class: cmd_question
+  Output: |-
+    That last output may be a little confusing at first, but notice that it is a
+    type of table with the different values in the first row and the number of
+    elements in the factor that take that value.  So you see in the first
+    instance, x is a numeric vector and R provides summary statistics that make
+    sense for a continuous variable.  In the second case, y is a factor, and R
+    understands it to be categorical.
+
+    When you give the valueslabels, as you often will, it can be much easier to
+    understand the summary of a factor.  Make a new factor from x called state
+    using labels, like this.  (You don't have to always create new names, we
+    could just have chosen to write over y, but for now let's do it this way.)
+
+    state <- factor(x, labels = c("GA", "FL", "AL"))
+  CorrectAnswer: state <- factor(x, labels = c("GA", "FL", "AL"))
+  AnswerTests: omnitest(correctExpr = 'state <- factor(x, labels = c("GA", "FL", "AL"))')
+  Hint: |-
+    Type state <- factor(x, labels = c("GA", "FL", "AL"))
+
+- Class: cmd_question
+  Output: |-
+    Now make a summary of state and examine the results.
+  CorrectAnswer: summary(state)
+  AnswerTests: omnitest(correctExpr = 'summary(state)')
+  Hint: |-
+    Type summary(state)
+
+- Class: text
+  Output: |-
+    The labels=c(...) is a named argument to the factor function.
+    The name is labels and the argument is the c(...) itself.
+    Notice the = sign that connects the name to the argument.
+    We will discuss this a lot more in the future. For now, just use this exact
+    syntax if you need to label a numeric vector when creating a factor.
+
+- Class: cmd_question
+  Output: |-
+    Note that the labels match the order of the values if you use numbers,
+    not the order they appear in the vector you convert to a factor.  Try the
+    following by putting x in a different order even though it represents
+    the same data:
+
+    x <- c(2, 3, 1, 1, 1)
+  CorrectAnswer: x <- c(2, 3, 1, 1, 1)
+  AnswerTests: omnitest(correctExpr = 'x <- c(2, 3, 1, 1, 1)')
+  Hint: |-
+    Type summary(x <- c(2, 3, 1, 1, 1))
+
+- Class: cmd_question
+  Output: |-
+    Now create a factor named state from x in the same way as before using:
+
+    labels = c("GA", "FL", "AL")
+  CorrectAnswer: state <- factor(x, labels = c("GA", "FL", "AL"))
+  AnswerTests: omnitest(correctExpr = 'state <- factor(x, labels = c("GA", "FL", "AL"))')
+  Hint: |-
+    Type state <- factor(x, labels = c("GA", "FL", "AL"))
+
+- Class: cmd_question
+  Output: |-
+    Examine the summary of state.
+  CorrectAnswer: summary(state)
+  AnswerTests: omnitest(correctExpr = 'summary(state)')
+  Hint: |-
+    Type summary(state)
+
+- Class: cmd_question
+  Output: |-
+    As you can see the results turned out exactly the same even though the
+    numeric vector was in a different order. You can also use a character vector
+    to create a factor, try this:
+
+    state <- factor(c("GA", "GA", "FL", "AL", "GA"))
+  CorrectAnswer: state <- factor(c("GA", "GA", "FL", "AL", "GA"))
+  AnswerTests: omnitest(correctExpr = 'state <- factor(c("GA", "GA", "FL", "AL", "GA"))')
+  Hint: |-
+    Type state <- factor(c("GA", "GA", "FL", "AL", "GA"))
+
+- Class: cmd_question
+  Output: |-
+    Examine the summary of state again.
+  CorrectAnswer: summary(state)
+  AnswerTests: omnitest(correctExpr = 'summary(state)')
+  Hint: |-
+    Type summary(state)
+
+- Class: text
+  Output: |-
+    Now they are alphabetically ordered.  Thus, how the data is structured can
+    have an influence of the order of the names in a factor.  There are many
+    other ways to influence the order and we will likely see those as we
+    progress.
+
+- Class: cmd_question
+  Output: |-
+    Now, we will turn to the topic of extract elements from vectors and factors.
+
+    When you want to extract a specific element from a vector or factor, you use
+    square brackets (i.e., [ ]) and the index (the number) of the element within
+    the data structure.  So to get the fifth element of x from before,
+    which was c(2, 3, 1, 1, 1), we'd type:
+
+    x[5]
+
+    Try it now.
+  CorrectAnswer: x[5]
+  AnswerTests: omnitest(correctExpr = 'x[5]')
+  Hint: |-
+    Type x[5]
+
+
+- Class: cmd_question
+  Output: |-
+    As you can see we got 1 which was the fifth element of the vector x.
+    So since x is c(2, 3, 1, 1, 1).  What would you do to get R to return 3
+    instead of 1?
+  CorrectAnswer: x[2]
+  AnswerTests: omnitest(correctExpr = 'x[2]')
+  Hint: |-
+    What element of c(2, 3, 1, 1, 1) is the number 3?  Count from the left and
+    then use the square bracket notation.
+
+- Class: cmd_question
+  Output: |-
+    Just like with names we can use these extract values anywhere they would be
+    valid.  Try:
+
+    x[2] + x[5]
+  CorrectAnswer: x[2] + x[5]
+  AnswerTests: omnitest(correctExpr = 'x[2] + x[5]')
+  Hint: |-
+    Type x[2] + x[5]
+
+- Class: cmd_question
+  Output: |-
+    What if you want a new vector of a subset of the values in the vector x?
+    We need our trusty friend c again, try:
+
+    x[c(2, 5)]
+  CorrectAnswer: x[c(2, 5)]
+  AnswerTests: omnitest(correctExpr = 'x[c(2, 5)]')
+  Hint: |-
+    Type x[c(2, 5)]
+
+- Class: cmd_question
+  Output: |-
+    So you see that returns a new vector of length two made up of the second
+    and fifth elements of x.  The square bracket notation also works on factors.
+    So, now extract the third element of the state factor.
+  CorrectAnswer: state[3]
+  AnswerTests: omnitest(correctExpr = 'state[3]')
+  Hint: |-
+    Type state[3]
+
+- Class: cmd_question
+  Output: |-
+    Now is where you'll see how vector operations in R are a lot like using
+    functions in Excel.  Keep in mind x is c(2, 3, 1, 1, 1).  Type:
+
+    x * 2
+  CorrectAnswer: x * 2
+  AnswerTests: omnitest(correctExpr = 'x * 2')
+  Hint: |-
+    Type x * 2
+
+- Class: cmd_question
+  Output: |-
+    Remember x is c(2, 3, 1, 1, 1).  How about 2 ^ x?
+  CorrectAnswer: 2 ^ x
+  AnswerTests: omnitest(correctExpr = '2 ^ x')
+  Hint: |-
+    Type 2 ^ x
+
+- Class: cmd_question
+  Output: |-
+    Remember x is c(2, 3, 1, 1, 1).  How about 5 - x?
+  CorrectAnswer: 5 - x
+  AnswerTests: omnitest(correctExpr = '5 - x')
+  Hint: |-
+    Type 5 - x
+
+- Class: cmd_question
+  Output: |-
+    Remember x is c(2, 3, 1, 1, 1).  How about x < 2?
+  CorrectAnswer: x < 2
+  AnswerTests: omnitest(correctExpr = 'x < 2')
+  Hint: |-
+    Type x < 2
+
+- Class: cmd_question
+  Output: |-
+    See how it applies the expression elementwise?
+
+    You can also apply operators to two vectors of the same length in which case
+    the resulting vector will be the result of the operator applied to the first
+    element of each vector, then the second element of each vector, and so on.
+    Remember x is c(2, 3, 1, 1, 1) and try:
+
+    x - c(1, 0, 1, 0, 1)
+  CorrectAnswer: x - c(1, 0, 1, 0, 1)
+  AnswerTests: omnitest(correctExpr = 'x - c(1, 0, 1, 0, 1)')
+  Hint: |-
+    Type x - c(1, 0, 1, 0, 1)
+
+- Class: cmd_question
+  Output: |-
+    You can even use a vector that is shorter than the other. The
+    shorter one will be recycled, try:
+
+    c(1, 0, 1, 0, 1, 0) + c(0, 1)
+  CorrectAnswer: c(1, 0, 1, 0, 1, 0) + c(0, 1)
+  AnswerTests: omnitest(correctExpr = 'c(1, 0, 1, 0, 1, 0) + c(0, 1)')
+  Hint: |-
+    Type c(1, 0, 1, 0, 1, 0) + c(0, 1)
+
+- Class: cmd_question
+  Output: |-
+    However, you will get a warning if the shorter vector is not a multiple of
+    the longer vector because this usually unintentional and most often
+    indicates a bug in your program. In this case, thought,
+    it works the way we expect, try:
+
+    c(1, 0, 1, 0, 1) + c(0, 1)
+  CorrectAnswer: c(1, 0, 1, 0, 1) + c(0, 1)
+  AnswerTests: omnitest(correctExpr = 'c(1, 0, 1, 0, 1) + c(0, 1)')
+  Hint: |-
+    Type c(1, 0, 1, 0, 1) + c(0, 1)
+
+- Class: text
+  Output: |-
+    A warning is issued by a program when it can continue executing,
+    but is not sure that how it is going to continue to execute is what
+    you were expecting it to do. A warning does not rise to the level of an
+    error which is something that the program cannot recover from.
+
+- Class: cmd_question
+  Output: |-
+    OK, let's wrap this up with a few exercises that'll teach you a few more
+    things are also be sure you've got this stuff down.  Let's make a really
+    long vector of sequential integers from 5 to 123.
+  CorrectAnswer: 5:123
+  AnswerTests: omnitest(correctExpr = '5:123', strict = TRUE)
+  Hint: |-
+    Remember that the colon (:) can help you?
+
+- Class: text
+  Output: |-
+    Examine the output. Now that you know how to extract elements from a vector
+    with square brackets, can explain why R has been printing [1] at the
+    beginning of the output all this time and why R is now printing other
+    numbers between the square brackets ([ ])?  Come ready to discuss in class.
+
+- Class: cmd_question
+  Output: |-
+    I bet you can guess what function can test if something is a factor.  Try
+    it on the variable named state.
+  CorrectAnswer: is.factor(state)
+  AnswerTests: omnitest(correctExpr = 'is.factor(state)')
+  Hint: |-
+    Does is.factor sound right?
+
+- Class: cmd_question
+  Output: |-
+    I bet you can also guess what function can test if something is a vector
+    (of any type).  Find out if factors are also vectors by trying that function
+    on state.
+  CorrectAnswer: is.vector(state)
+  AnswerTests: omnitest(correctExpr = 'is.vector(state)')
+  Hint: |-
+    Does is.vector sound right?
+
+- Class: play_question
+  Output: |-
+    Remember that I said that a vector can only be made from the same atomic
+    type? Try the following (and additional similar examples) and try to
+    understand what is going on.
+
+    c(TRUE, 0, FALSE, 3)
+
+    and
+
+    c("a", 3, TRUE)
+
+    What is R doing? Why does this always "work"?
+    Come ready to discuss in class. (You are in play mode.  Type nxt() to
+    continue.)
+
+- Class: mult_question
+  Output: Respond Yes to send your instructor a log of your progress now
+    via Google Forms.
+  AnswerChoices: Yes;Yes
+  CorrectAnswer: Yes
+  AnswerTests: submit_log()
+  Hint: Respond Yes.
+
+- Class: text
+  Output: |-
+    Great you've finished the lesson!  You pressed the Submit button
+    in Google Forms, right?  And if your submission failed via Google Forms
+    for any reason, please see above for instructions of what to do.
+    Ready for more?
