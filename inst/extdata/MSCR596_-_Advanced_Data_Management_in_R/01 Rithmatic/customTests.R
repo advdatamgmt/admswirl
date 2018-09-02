@@ -1,1 +1,1 @@
-source(system.file("R/commonCustomTests.R", package = "admswirl"))
+source(system.file("extdata/commonCustomTests.R", package = "admswirl"))
