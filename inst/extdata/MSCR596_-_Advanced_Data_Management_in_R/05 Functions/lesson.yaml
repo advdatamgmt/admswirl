@@ -1,0 +1,346 @@
+- Class: meta
+  Course: MSCR596 - Advanced Data Management in R
+  Lesson: Functions
+  Author: Beau B. Bruce
+  Type: Standard
+  Organization: Emory University
+  Version: 2.4.3
+
+- Class: text
+  Output: |-
+    Data are the "nouns" of a computer language while functions are the "verbs."
+    We now have a solid foundation with respect to the various datatypes in R
+    so it is a good time to turn to the language's verbs, functions.
+
+    I also like to think of functions as a type of creature that eats and
+    processes data thereby providing a useful output. Think of yeast which "eat"
+    sugar and process it into alcohol.
+
+- Class: text
+  Output: |-
+    Functions have an anatomy: a name, a mouth, and a body.
+    Take the c function as an example. The name of the function is c.
+    The mouth is the parentheses.
+
+    c("e", "a", "t")
+    The food called arguments goes in the mouth separated by commas
+    (I like to think of them as teeth, but now, maybe I’m taking the
+    analogy too far...).
+
+- Class: cmd_question
+  Output: |-
+    Where is the body? R functions are shy and do not like to show off their
+    body. They hide it, but if you call their name without offering food,
+    they will show it to you as they turn to run to run away realizing you do
+    not plan to offer them anything to eat.  (Yes, the analogy is definitely
+    getting thin :) )  Try it now with the function named c.  Just type c.
+  CorrectAnswer: c
+  AnswerTests: omnitest(correctExpr = 'c')
+  Hint: |-
+    Type just c.  No paretheses, just c.
+
+
+- Class: cmd_question
+  Output: |-
+    c has an unusually strange body. Dark magic is going on there so I suggest
+    you just look away, unless you are into that sort of thing. Let’s look at a
+    more typical function, factor, which you met in Rcel, part 1.  How can you
+    make factor show you its body?
+  CorrectAnswer: factor
+  AnswerTests: omnitest(correctExpr = 'factor')
+  Hint: |-
+    Type just factor.  No paretheses, just factor.
+
+- Class: text
+  Output: |-
+    There is a lot going on there (scroll back to see it all),
+    but look at the general structure. The word
+    function followed by the mouth enclosed in parentheses () telling you some
+    details about the foods this creature eats. Next, you see a section enclosed
+    in curly brackets {}: that’s the body. What is inside? R code! Basically,
+    inside the body of a function is a recipe of R code that can be reused to
+    repeat a useful action.
+
+    If you thought c was odd, there are even functions that do not show their
+    mouth without some coaxing. Can you think of one?  What is an "action"" you
+    have taken on data that did not need parentheses?
+    Think about for a moment before continuing.
+
+- Class: cmd_question
+  Output: |-
+    How about the operators, like +, *, >, etc.  Can you believe that they are
+    ALL functions?  They are, but you have to know how to get these painfully
+    shy creatures to show even their mouth.
+
+    To do so, you need to get bold with calling their name by using backticks.
+    A backtick look like this -->  `
+    It isn't a quote --> '
+    See the difference?
+
+    You usually find it under the tilde, ~, on the upper left side of your
+    keyboard usually.  So, try this
+
+    `*`(2, 2)
+
+    to see * acting as a regular function.
+  CorrectAnswer: '`*`(2, 2)'
+  AnswerTests: omnitest(correctExpr = '`*`(2, 2)')
+
+- Class: cmd_question
+  Output: |-
+    Can you guess how to get * to show you its body?
+  CorrectAnswer: '`*`'
+  AnswerTests: omnitest(correctExpr = '`*`')
+  Hint: Did you forget the backticks?
+
+- Class: cmd_question
+  Output: |-
+    All arguments have names, but you do not always need to use them.
+    Look at the help for factor
+
+    ?factor
+
+    Go ahead type it now.  You'll see it come up in the window in the bottom
+    right.  Near the top of the help, you’ll see the following:
+
+    factor(x = character(), levels, labels = levels,
+      exclude = NA, ordered = is.ordered(x), nmax = NA)
+
+    In order the names of the arguments for the factor function are x, levels,
+    labels, exclude, ordered, and nmax. After many you will note an equals sign
+    with something after it. These are the defaults for the argument if you do
+    not specify them. However, just because levels does not have an
+    explicit default in the list does not mean that it does not have one.
+    If you read further into the help it says that levels does have a default value.
+
+    Since all values have a default, the function factor will return valid
+    output even if run with no arguments, like this:
+
+    factor()
+
+    Try it now.
+  CorrectAnswer: 'factor()'
+  AnswerTests: omnitest(correctExpr = 'factor()')
+
+- Class: text
+  Output: |-
+    R's response means that you created an empty (length 0) factor.
+
+    On the other hand + does not have default arguments, so if you type `+`()
+    you'll get: Error in `+`(): operator needs one or two arguments.
+
+    So why the names? The most important reason as you will learn in the next
+    section is so that you can refer to the arguments by name in the body of the
+    function. A secondary use has to do with the way you call functions.
+
+    If you do not name the arguments when you call the function, R assumes that
+    you are using them in order starting with the first listed.
+    Names are useful when you need to skip an argument, want to be explicit
+    about which argument something is, or if you are (or are afaid you might
+    be) using them out of order.
+
+- Class: cmd_question
+  Output: |-
+    Let's explore this.  Start by creating a variable named a that contains
+    the vector c(1, 1, 2, 2).
+  CorrectAnswer: a <- c(1, 1, 2, 2)
+  AnswerTests: omnitest(correctExpr = 'a <- c(1, 1, 2, 2)')
+  Hint: Type just a <- c(1, 1, 2, 2)
+
+- Class: cmd_question
+  Output: |-
+    OK, when we use the labels argument to give them nice labels we have to type
+
+    factor(a, labels = c("M", "F"))
+
+    Why?  Consider our discussion and look at the help file.
+
+    Because the second argument is not used and the third is named labels.
+
+    What is the name of the first argument according to the help file?
+
+    Now specify that name (even though you do not have to) and run this same
+    command: factor(a, labels = c("M", "F"))
+  CorrectAnswer: factor(x = a, labels = c("M", "F"))
+  AnswerTests: expr_identical_to('factor(x = a, labels = c("M", "F"))')
+  Hint: Don't forget to add the correct tag to the first argument!
+
+- Class: text
+  Output: |-
+    Now you know most everything you need to know about how to call functions
+    that already exist, but a lot of programming should be writing your own
+    functions.
+
+    Functions are your friend. Have you ever cut-and-paste a piece code to run
+    it again after just tweaking it to run on slightly different data.
+    Try not to do that, instead use functions. Why?
+
+    * When you use functions, you encapsulate little pieces of logic in your
+    program. It makes your code and the thinking behind it much easier to
+    understand and modify. The code will also be shorter overall.
+
+    * If you cut-and-paste and realize you need to change something you have to do
+    it everywhere and not make any mistakes, with a function you do it in one
+    place: the function.
+
+    * You will also likely find your functions are useful in your next project, and a
+    function is a good way to carry something useful from one project to another
+    in a useful way.
+
+- Class: text
+  Output: |-
+    A major principle of programming is DRY which stands for
+    "Don’t Repeat Yourself". I might cut and paste something twice,
+    but by the 3rd paste unless I’m seriously not going to do it again, and it
+    is a very short (one line) piece of code, I am going to be trying to make a
+    function out of it. This rule of not using the same code more than three
+    times is also known as the "rule of three" in computer programming.
+
+- Class: cmd_question
+  Output: |-
+    So how to write a function? Name it (via assignment with <-), use the
+    keyword *function* followed by the mouth with a list of arguments.
+    Then, write the R code as the body. Use it just like any other R function.
+    Use the name you chose for the argument in the function to work on the data
+    that it will pass in.  The name is NOT magic.  You can pick anything you
+    like and it will stand in for the object that is passed, just like you
+    assigned that data to that name outside the function.  Type this
+    example of a trivial function:
+
+    add2 <- function(x) { x + 2 }
+  CorrectAnswer: |-
+    add2 <- function(x) { x + 2 }
+  AnswerTests: omnitest(correctExpr = 'add2 <- function(x) { x + 2 }')
+
+- Class: cmd_question
+  Output: |-
+    Now try it out, like this:
+
+    add2(5)
+  CorrectAnswer: add2(5)
+  AnswerTests: omnitest(correctExpr = 'add2(5)')
+
+- Class: cmd_question
+  Output: |-
+    And again:
+
+    add2(2)
+  CorrectAnswer: add2(2)
+  AnswerTests: omnitest(correctExpr = 'add2(2)')
+
+- Class: script
+  Output: |-
+    See how R takes your number, assigns it to x, and then adds two to x which
+    is now your number and returns it.  It returns that value because it is the
+    last thing that is executed in the body of the function.  Let's make a
+    very slightly more complicated function.  Look at the function in the window
+    above called add2sub5.
+  AnswerTests: test_add2sub5()
+  Script: add2sub5.R
+
+- Class: cmd_question
+  Output: |-
+    Ok, try it out!
+
+    add2sub5(10)
+  CorrectAnswer: add2sub5(10)
+  AnswerTests: omnitest(correctExpr = 'add2sub5(10)')
+
+- Class: cmd_question
+  Output: |-
+    The second example shows that within the body you need to write R code just
+    like you would at the console with each statement on a separate line.
+    R returns the result of the last statement.
+    The variables defined within the function are local to the function.
+    Changing their values as we did in add2sub5 does not change them outside the
+    function. This also makes your programs much safer
+    (so you don’t accidentally change something you did earlier in a
+    long program).
+
+    Try this to see what I mean:
+
+    x <- 10
+  CorrectAnswer: x <- 10
+  AnswerTests: omnitest(correctExpr = 'x <- 10')
+
+- Class: cmd_question
+  Output: |-
+    Now:
+
+    add2sub5(10)
+  CorrectAnswer: add2sub5(10)
+  AnswerTests: omnitest(correctExpr = 'add2sub5(10)')
+
+- Class: cmd_question
+  Output: |-
+    Did x change?  How can you take a peek?
+  CorrectAnswer: x
+  AnswerTests: expr_identical_to('x')
+  Hint: How do you get R to show you what is inside a variable?
+
+- Class: script
+  Output: |-
+    Yep! x is still 10.  So, functions help us protect our data because changes
+    inside are "hidden" from the outside.  However, look at the function
+    addysub5 above (type submit() when done)
+  AnswerTests: test_addysub5()
+  Script: addysub5.R
+
+- Class: cmd_question
+  Output: |-
+    So what happens if you try to run addysub5 on 10?
+    Try that first.  Then, assign 5 to y.
+  CorrectAnswer: y <- 5
+  AnswerTests: omnitest(correctExpr = 'y <- 5')
+  Hint: You got an error, but now type y <- 5
+
+- Class: cmd_question
+  Output: |-
+    Try again to run addysub5 on 10
+  CorrectAnswer: addysub5(10)
+  AnswerTests: omnitest(correctExpr = 'addysub5(10)')
+  Hint: addysub5(10)
+
+- Class: text
+  Output: |-
+    If a variable is not specified by argument, then R has to search for it,
+    and it will look outside the function to try to find it.  Once you assign
+    a number to y, then R can find it and will use it in the function.  It is
+    usually best to avoid this behavior and instead pass y as another argument
+    but occasionally it is the right solution to a problem.
+
+- Class: script
+  Output: |-
+    Now it is your turn to write a function.  Create the function add5 by
+    adding the right code between the brackets above.  Save it (File -> Save menu
+    or Command-S) and then type submit().
+  AnswerTests: test_add5()
+  Script: add5.R
+
+- Class: script
+  Output: |-
+    Try another.  Create a function cube that cubes a number.
+    https://en.wikipedia.org/wiki/Cube_%28algebra%29
+  AnswerTests: test_cube()
+  Script: cube.R
+
+- Class: text
+  Output: |-
+    Great job!  You have learned the basics of functions.  Between now and class
+    I want you think about how you could write a function that would return
+    two values instead of just one (what data type should you return?)
+
+- Class: mult_question
+  Output: Respond Yes to send your instructor a log of your progress now
+    via Google Forms.
+  AnswerChoices: Yes;Yes
+  CorrectAnswer: Yes
+  AnswerTests: submit_log()
+  Hint: Respond Yes.
+
+- Class: text
+  Output: |-
+    Great you've finished the lesson!  You pressed the Submit button
+    in Google Forms, right?  And if your submission failed via Google Forms
+    for any reason, please see above for instructions of what to do.
+    Ready for more?
