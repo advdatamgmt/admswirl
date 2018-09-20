@@ -1,0 +1,313 @@
+- Class: meta
+  Course: MSCR596 - Advanced Data Management in R
+  Lesson: Branching Out & Feeling Loopy
+  Author: Beau B. Bruce
+  Type: Standard
+  Organization: Emory University
+  Version: 2.4.3
+
+- Class: text
+  Output: |-
+    In the last lesson we had an introduction to functions, a way to
+    encapsulate pieces of R code in a way that we substitute different
+    values (arguments) into that code and apply that "recipe" to a set
+    of arbitrary values. However, what if we need the program to "think",
+    i.e., to make decisions about what to do? What if we need to do
+    something many, many times: ten times, one hundred times, a million times?
+    Yes, our function might be easier to write than the code it runs,
+    but you still don’t want to write your function out that many times.
+    This lesson addresses both of these problems.
+
+- Class: cmd_question
+  Output: |-
+    Control structures guide the flow of of your program.
+    The first group of control structures we will consider are *branch*
+    control structures. They are called branch structures
+    because they place a "fork in the road" for your program.
+
+    The first to look at is *if*.  Start by assigning 5 to x so that
+    we have something to work with.
+  CorrectAnswer: x <- 5
+  AnswerTests: omnitest(correctExpr = 'x <- 5')
+  Hint: |-
+    You need the assignment operator, right?
+
+- Class: cmd_question
+  Output: |-
+    Now what happens when you type the following:
+
+    if (x > 3) { "x is greater than 3" }
+  CorrectAnswer: if (x > 3) { "x is greater than 3" }
+  AnswerTests: omnitest(correctExpr = 'if (x > 3) { "x is greater than 3" }')
+
+- Class: cmd_question
+  Output: |-
+    As you could see, R returns the character vector (length 1) that
+    "x is greater than 3" because x is 5 which
+    is greater than 3.  Thus, R ran the code in the brackets.
+    Just as with a function it returned the last thing (in this case the
+    only thing) that was executed inside the brackets.
+    But what if you try:
+
+    if (x > 10) { "x is greater than 10" }
+  CorrectAnswer: if (x > 10) { "x is greater than 10" }
+  AnswerTests: omnitest(correctExpr = 'if (x > 10) { "x is greater than 10" }')
+
+- Class: script
+  Output: |-
+    Did R return anything?  No, because x is 5 which is not greater than 10,
+    So, R just skipped the block of code in the curly braces.
+    You can add an *else* to provide an alternative block of code to
+    execute if the expression is not TRUE in the parentheses.
+    Examine code above, think about what it should do,
+    and when you are done, type submit() in the console
+    window, i.e., this window, to run it.
+  AnswerTests: test_ifelse()
+  Script: ifelse.R
+
+- Class: script
+  Output: |-
+    The output should make sense I hope. You can also chain statements
+    if-else statements together.  Look at the code above to see how, think
+    about what you expect it to do, and then use submit() to continue
+    when you are done looking at it.
+  AnswerTests: test_ifelseelse()
+  Script: ifelseelse.R
+
+- Class: script
+  Output: |-
+    You can also next if-else statements.  Look at the code above to see how, think
+    about what you expect it to do, and then use submit() to continue
+    when you are done looking at it.
+  AnswerTests: test_ifif()
+  Script: ifif.R
+
+- Class: script
+  Output: |-
+    What if there are several choices to choose among?
+
+    What if there are several choices? You can use chained and nested if and
+    else expressions, but often a simpler solution is the switch statement.
+    Study the code above and use submit() again.  Then we'll take it for a
+    spin.
+  AnswerTests: test_center()
+  Script: center.R
+
+- Class: cmd_question
+  Output: |-
+    Try it out with:
+
+    center(x, "mean")
+  CorrectAnswer: center(x, "mean")
+  AnswerTests: omnitest(correctExpr = 'center(x, "mean")')
+  Hint: |-
+    center(x, "mean")
+
+- Class: cmd_question
+  Output: |-
+    Try it out with:
+
+    center(x, "median")
+  CorrectAnswer: center(x, "median")
+  AnswerTests: omnitest(correctExpr = 'center(x, "median")')
+  Hint: |-
+    center(x, "median")
+
+- Class: cmd_question
+  Output: |-
+    Try it out with:
+
+    center(x, "trim")
+
+    which gives the mean of the values trimming off 10% on each end of the
+    sorted values.
+  CorrectAnswer: center(x, "trim")
+  AnswerTests: omnitest(correctExpr = 'center(x, "trim")')
+  Hint: |-
+    center(x, "trim")
+
+- Class: script
+  Output: |-
+    You can specify defaults in your own functions just as you see the
+    bulitin functions do.  Look how I changed center above then submit()
+  AnswerTests: test_center()
+  Script: centerdefault.R
+
+- Class: cmd_question
+  Output: |-
+    Now try it on x without specifying the second argument.
+  CorrectAnswer: center(x)
+  AnswerTests: omnitest(correctExpr = 'center(x)')
+  Hint: |-
+    Just center(x)
+
+- Class: text
+  Output: |-
+    Since the default was "mean" it did just as it should and gave you the mean
+    value of x.
+
+    The other category of branch control stuctures is the loop structure.
+    You use loops when you want to repeat something over and over or when you
+    want to *iterate* across a stucture.
+
+- Class: cmd_question
+  Output: |-
+    The for loop control structure allows you to iterate over a vector or list.
+    Here is an example:
+
+    for (x in 10:1) { print(x) }
+
+    The print function prints the value at that time.  In this case of a loop,
+    nothing is returned (unless you assign it somewhere as we'll see later),
+    so we need the print function to show us what is going on.
+
+    Read that as for each element in the vector 10:1 (which recall is
+    equivalent to c(10, 9, 8, 7, 6, 5, 4, 3, 2, 1))
+    call it x temporarily and do what is inside the curly brackets.
+
+    Try it now.
+  CorrectAnswer: for (x in 10:1) { print(x) }
+  AnswerTests: omnitest(correctExpr = 'for (x in 10:1) { print(x) }')
+  Hint: for (x in 10:1) { print(x) }
+
+- Class: cmd_question
+  Output: |-
+    I've already defined the list l as:
+
+    l <- list(a = c(3, 4, 5), b = c("dogs", "cats"))
+
+    See what happens when you iterate over the object with:
+
+    for (x in l) { print(x[1]) }
+
+    It should take each element of l, i.e., a and then b, and assign
+    it temporarily to x and print the first value of each element.
+  CorrectAnswer: for (x in l) { print(x[1]) }
+  AnswerTests: omnitest(correctExpr = 'for (x in l) { print(x[1]) }')
+  Hint: for (x in l) { print(x[1]) }
+
+- Class: script
+  Output: |-
+    The while loop keeps doing something while (get it?) the condition of
+    the loop is TRUE. See example above and then submit().
+  AnswerTests: test_center()
+  Script: while.R
+
+- Class: text
+  Output: |-
+    If you aren’t careful, you could write the loop wrong in a
+    way that it would never end.  If the line above that was:
+
+    i <- i - 1
+
+    was instead
+
+    i <- i + 1
+
+    Then i would be 11, 12, 13... and would never make i > 0 be FALSE.  So the
+    loop would never stop.  This is called an infinite loop.
+    If you do that by accident (and you will at some point),
+    to get R to stop, hit the little stop sign at the upper
+    right of your console window that you see when code is running.
+
+- Class: text
+  Output: |-
+    Two reserved words permit further control of loops: break and next.
+    When used within a loop (either for or while), they allow you to completely
+    break out of the loop and continue further along your program (break) or
+    skip the rest of the current loop and start the next one (next).
+    They can help with tricky situations.
+
+- Class: script
+  Output: |-
+    Above is an trivial example of using break.  Here we just use TRUE as the
+    while condition.  Thus, it appears this would be an infinite loop.  And it
+    would be were it not for the break.  Do submit() when you are ready.
+  AnswerTests: test_center()
+  Script: whilebreak.R
+
+- Class: script
+  Output: |-
+    Above is an unnecessarily complicated loop of using break and next.
+    However, it demonstrates the concepts.  See if you can figure out
+    what it will do.  Just go step by step - write down what I is and see
+    what is printed out.  Then submit() when you are ready to see if you are
+    right.
+  AnswerTests: test_center()
+  Script: whilenext.R
+
+- Class: text
+  Output: |-
+    Did you get it?  Review it more if not, and think about how to rewrite
+    it so that the while loop using neither break nor next.  We will discuss
+    in class.
+
+- Class: text
+  Output: |-
+    OK, one last thing.  A function called ifelse (one word).
+    It provides a simple branch logic for a vector.
+    It is technically not a control structure because it does not
+    change the flow of your program, but it is very useful and
+    similar in concept to if-else.
+
+- Class: cmd_question
+  Output: |-
+    I've defined y as c(5, 0, 6, 8, 9, 7, 3, 4, 4, 7)
+
+    Try:
+
+    ifelse(y == 7, "seven", "not seven")
+  CorrectAnswer: ifelse(y == 7, "seven", "not seven")
+  AnswerTests: omnitest(correctExpr = 'ifelse(y == 7, "seven", "not seven")')
+
+- Class: cmd_question
+  Output: |-
+    I've defined y as c(5, 0, 6, 8, 9, 7, 3, 4, 4, 7)
+
+    Try:
+
+    ifelse(y %% 2 == 0, "even", "odd")
+  CorrectAnswer: ifelse(y %% 2 == 0, "even", "odd")
+  AnswerTests: omnitest(correctExpr = 'ifelse(y %% 2 == 0, "even", "odd")')
+
+- Class: cmd_question
+  Output: |-
+    I've defined y as c(5, 0, 6, 8, 9, 7, 3, 4, 4, 7)
+
+    You don't have to use character types... try:
+
+    ifelse(y %% 2 == 0, 0, 1)
+  CorrectAnswer: ifelse(y %% 2 == 0, 0, 1)
+  AnswerTests: omnitest(correctExpr = 'ifelse(y %% 2 == 0, 0, 1)')
+
+- Class: cmd_question
+  Output: |-
+    I've defined y as c(5, 0, 6, 8, 9, 7, 3, 4, 4, 7)
+
+    Here is a fun one using a new operator, the %in% operator.  You will find
+    the operator is useful in many situations and can use it in other places
+    than just inside an ifelse function call:
+
+    ifelse(x %in% c(7, 4, 0), "in", "out")
+  CorrectAnswer: ifelse(x %in% c(7, 4, 0), "in", "out")
+  AnswerTests: omnitest(correctExpr = 'ifelse(x %in% c(7, 4, 0), "in", "out")')
+
+- Class: text
+  Output: |-
+    Hopefully, that made sense. If not, we can discuss more in class.
+    You've learned a lot!  That's enough for now!  Take a break!
+
+- Class: mult_question
+  Output: Respond Yes to send your instructor a log of your progress now
+    via Google Forms.
+  AnswerChoices: Yes;Yes
+  CorrectAnswer: Yes
+  AnswerTests: submit_log()
+  Hint: Respond Yes.
+
+- Class: text
+  Output: |-
+    Great you've finished the lesson!  You pressed the Submit button
+    in Google Forms, right?  And if your submission failed via Google Forms
+    for any reason, please see above for instructions of what to do.
+    Ready for more?
