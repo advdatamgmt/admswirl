@@ -568,7 +568,7 @@
 
     head(merall)
   CorrectAnswer: head(merall)
-  AnswerTests: head(merall)
+  AnswerTests: omnitest(correctExpr = 'head(merall)')
 
 - Class: cmd_question
   Output: |-
@@ -576,7 +576,7 @@
 
     head(merall, 10)
   CorrectAnswer: head(merall, 10)
-  AnswerTests: head(merall, 10)
+  AnswerTests: omnitest(correctExpr = 'head(merall, 10)')
 
 - Class: cmd_question
   Output: |-
@@ -584,7 +584,7 @@
 
     tail(merall, 10)
   CorrectAnswer: tail(merall, 10)
-  AnswerTests: tail(merall, 10)
+  AnswerTests: omnitest(correctExpr = 'tail(merall, 10)')
 
 - Class: cmd_question
   Output: |-
@@ -595,7 +595,7 @@
 
     head(merall, -15)
   CorrectAnswer: head(merall, -15)
-  AnswerTests: head(merall, -15)
+  AnswerTests: omnitest(correctExpr = 'head(merall, -15)')
 
 - Class: cmd_question
   Output: |-
@@ -604,7 +604,7 @@
 
     tail(merall, -15)
   CorrectAnswer: tail(merall, -15)
-  AnswerTests: tail(merall, -15)
+  AnswerTests: omnitest(correctExpr = 'tail(merall, -15)')
 
 - Class: text
   Output: |-
