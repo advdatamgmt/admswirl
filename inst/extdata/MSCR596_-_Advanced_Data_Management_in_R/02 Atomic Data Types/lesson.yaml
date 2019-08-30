@@ -41,10 +41,11 @@
 - Class: cmd_question
   Output: |-
     I guess you noticed that R responds TRUE when you ask
-    it whether something is a numeric, and it is indeed a numeric datatype.
+    it whether something is a numeric and that thing is indeed a numeric
+    datatype.
 
     TRUE is R's word for "yes." TRUE is a different data type from
-    numeric. How do you know? Type what you think you should to test whether
+    numeric. How could you find out? Type below what would test whether
     TRUE is numeric or not.
 
     Don't forget that R is case-sensitive,
