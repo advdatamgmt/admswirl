@@ -142,7 +142,7 @@
 - Class: play_question
   Output: |-
     By the way, NaN means "not a number."  It's another way of saying that
-    mathematical opeperation is "undefined."
+    mathematical operation is "undefined."
 
     Now I want you to try to figure something else out.  What does the
     %% operator do?  It works like +, -, *, or / does with two numbers.
