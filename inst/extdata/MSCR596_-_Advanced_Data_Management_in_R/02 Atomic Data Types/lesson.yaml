@@ -184,8 +184,8 @@
   Output: |-
     You know what is.character(2) will return? FALSE, right?
     What if you wanted to use is.character and the number 2 together,
-    but get TRUE instead (i.e., what would you need to add surrounding the number
-    2 to get TRUE)?  Type the full expression using is.character and the
+    but get TRUE instead (i.e., what would you need to add surrounding the
+    number 2 to get TRUE)?  Type the full expression using is.character and the
     number 2 that returns TRUE.
   CorrectAnswer: is.character("Hi!")
   AnswerTests: omnitest(correctExpr='is.character("2")')
