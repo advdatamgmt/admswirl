@@ -316,8 +316,8 @@
 
     Two equal signs without any space between them == is the test of whether
     two things are equal or not.  A single equals sign = means something
-    different, so be careful or you get an error message from your code or worse
-    an unsuspeted logical error (a "bug") that may surprise you!
+    different, so be careful or you get an error message from your code or
+    worse an unsuspected logical error (a "bug") that may surprise you!
     The symbol != tests whether two things are not equal.
 
     So, 3 == 3 is TRUE and 2 != 3 is FALSE.
