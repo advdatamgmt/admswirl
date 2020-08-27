@@ -298,16 +298,15 @@
     You've learned a lot!  That's enough for now!  Take a break!
 
 - Class: mult_question
-  Output: Respond Yes to send your instructor a log of your progress now
-    via Google Forms.
+  Output: Respond Yes to submit your assignment to Canvas.
   AnswerChoices: Yes;Yes
   CorrectAnswer: Yes
-  AnswerTests: submit_log()
+  AnswerTests: submit_log(366591)
   Hint: Respond Yes.
 
 - Class: text
   Output: |-
-    Great you've finished the lesson!  You pressed the Submit button
-    in Google Forms, right?  And if your submission failed via Google Forms
-    for any reason, please see above for instructions of what to do.
+    Check to see that your submission was successful and there are no errors
+    above. If your submission failed to
+    submit automatically for any reason, please follow the instructions above.
     Ready for more?

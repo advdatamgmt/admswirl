@@ -163,16 +163,11 @@
 
     seem right?
 
-- Class: play_question
-  Output: Now it is time to try out your skills.  You are again in play mode
-    and I want you to figure out which data type the value that is returned
+- Class: mult_question
+  Output: Now it is time to try out your skills.  Go into play mode
+    and figure out which data type the value that is returned
     when you divide another number by zero.  (Don't forget to type nxt() when
     you are ready to answer.)
-
-- Class: mult_question
-  Output: |-
-    So, you think you have it figured out?  If not, you can always
-    type play() to keep working at it.  Otherwise, choose the right answer:
   AnswerChoices: character;logical;numeric
   AnswerTests: omnitest(correctVal="numeric")
   CorrectAnswer: numeric
@@ -193,14 +188,14 @@
     What do you enclose a group of characters in to make R recognize it
     as a character type?
 
-- Class: play_question
+- Class: mult_question
   Output: |-
     Useful operators for the logical data type include &, |, and !.
     They are called the logical operators.
     The | is often called a pipe character.
     You’ll usually find it above the backslash (i.e., \) on the right
     side of your your keyboard.  Let's try them out, starting with the !
-    operator.  You are in play mode - figure out what R evaluates
+    operator.  In play mode - figure out what R evaluates
 
     !TRUE
 
@@ -208,11 +203,10 @@
 
     !FALSE
 
-    as and then come back answer some questions about it.
+    to and then come back answer some questions about it.
     (Remember to type nxt() to return.)
 
-- Class: mult_question
-  Output: So - what does the ! operator return when applied to TRUE?
+    First, what does the ! operator return when applied to TRUE?
   AnswerChoices: TRUE;FALSE
   CorrectAnswer: FALSE
   AnswerTests: omnitest(correctVal="FALSE")
@@ -225,12 +219,12 @@
   AnswerTests: omnitest(correctVal="TRUE")
   Hint: Did you play enough?
 
-- Class: play_question
+- Class: mult_question
   Output: |-
     Great work!  The ! operator returns the opposite value when applied to
     TRUE or FALSE.  Most of the time you'll hear ! called the "not" operator.
 
-    So, now you are in play mode and I want you to figure out what both the
+    In play mode, figure out what both the
     & and the | operators do.  Try them with every combination of TRUE and FALSE
     on each side (i.e., TRUE/TRUE, TRUE/FALSE, FALSE/TRUE, FALSE/FALSE) in a
     pattern like this:
@@ -243,26 +237,25 @@
 
     (Remember to type nxt() to return.)
 
-- Class: mult_question
-  Output: What is TRUE & FALSE?
+    Then, answer: what is TRUE & FALSE?
   AnswerChoices: TRUE;FALSE
   CorrectAnswer: FALSE
   AnswerTests: omnitest(correctVal="FALSE")
-  Hint: Did you play enough?
+  Hint: Did you play enough? If not, you can play() more.
 
 - Class: mult_question
   Output: What is TRUE | FALSE?
   AnswerChoices: TRUE;FALSE
   CorrectAnswer: TRUE
   AnswerTests: omnitest(correctVal="TRUE")
-  Hint: Did you play enough?
+  Hint: Did you play enough? If not, you can play() more.
 
 - Class: mult_question
   Output: What is TRUE | TRUE?
   AnswerChoices: TRUE;FALSE
   CorrectAnswer: TRUE
   AnswerTests: omnitest(correctVal="TRUE")
-  Hint: Did you play enough?
+  Hint: Did you play enough? If not, you can play() more.
 
 - Class: mult_question
   Output: |-
@@ -273,7 +266,7 @@
   AnswerChoices: and;not;or
   CorrectAnswer: "and"
   AnswerTests: omnitest(correctVal="and")
-  Hint: Well, you don't think the answer is is "not", right? :)
+  Hint: Well, you don't think the answer is "not", right? :)
 
 - Class: mult_question
   Output: |-
@@ -284,7 +277,7 @@
   AnswerChoices: and;not;or
   CorrectAnswer: "or"
   AnswerTests: omnitest(correctVal="or")
-  Hint: Well, you don't think the answer is is "not", right? :)
+  Hint: Well, you don't think the answer is "not", right? :)
 
 - Class: text
   Output: |-
@@ -407,16 +400,15 @@
     the relational operators work on all the data types we've learned about.
 
 - Class: mult_question
-  Output: Respond Yes to send your instructor a log of your progress now
-    via Google Forms.
+  Output: Respond Yes to submit your assignment to Canvas.
   AnswerChoices: Yes;Yes
   CorrectAnswer: Yes
-  AnswerTests: submit_log()
+  AnswerTests: submit_log(366583)
   Hint: Respond Yes.
 
 - Class: text
   Output: |-
-    Great you've finished the lesson!  You pressed the Submit button
-    in Google Forms, right?  And if your submission failed via Google Forms
-    for any reason, please see above for instructions of what to do.
+    Check to see that your submission was successful and there are no errors
+    above. If your submission failed to
+    submit automatically for any reason, please follow the instructions above.
     Ready for more?

@@ -86,24 +86,29 @@
 
     25 / 5
 
-- Class: play_question
+- Class: text
   Output: |-
     Now is a time for you to extend your knowledge by
-    exploring and experimenting some yourself.  You are now
-    in play mode.  You can try any R command you like in this
+    exploring and experimenting some yourself.  So before you
+    answer the next question you need to play around some.
+    To do that, when the next prompt comes up, you type play() and
+    return.  You will then be in play mode.
+    You can try any R command you like while in play
     mode and swirl will not worry about it.
-
-    I want you to figure out what R says when you divide a
-    number by zero.  When you are done experimenting type
-
-    nxt()
-
-    and I ask you about what you found out.
 
 - Class: cmd_question
   Output: |-
-    So what do you get when in R when you divide a number
-    by zero?
+    I want you to figure out what R says when you divide a
+    number by zero.  So first type:
+
+    play()
+
+    And when you are done experimenting type:
+
+    nxt()
+
+    and type the answer to the question about what R says when you divide
+    a number by zero that you found by playing.
   CorrectAnswer: Inf, -Inf, NaN
   AnswerTests: any_of_exprs('Inf', '-Inf', 'NaN')
   Hint: |-
@@ -112,7 +117,7 @@
     If you still aren't sure then, type play() and then try
     typing something like 5 / 0.
 
-- Class: play_question
+- Class: cmd_question
   Output: |-
     That was good work, but did you realize there were three possible
     answers?  Did you try a positive number, a negative number, and zero
@@ -124,12 +129,9 @@
     in your data management you'll know you probably divided by zero somewhere
     without expecting it.
 
-    So now give the other cases a try, and when you are done type nxt() to
-    tell me what 0 / 0 is according to R.
-
-- Class: cmd_question
-  Output: |-
-    So what do you get when in R when you divide zero
+    So now give the other cases a try in play mode.  You get there by typing
+    play() and when you are done you type nxt().  Try each possibility then
+    answer the question: what do you get when in R when you divide zero
     by zero?
   CorrectAnswer: NaN
   AnswerTests: omnitest(correctExpr = NaN)
@@ -139,7 +141,7 @@
     You didn't type [1] as part of your answer did you?
     You can type play() and try to figure it out again.
 
-- Class: play_question
+- Class: cmd_question
   Output: |-
     By the way, NaN means "not a number."  It's another way of saying that
     mathematical operation is "undefined."
@@ -155,14 +157,8 @@
     it right and then I'll ask you a few questions to make sure you know how it
     works.
 
-    So play now and try to figure out how it works, and
-    when you are done type nxt().
-    When you come back you'll first have to tell me what 12 %% 5 is, but
-    I'm going to ask you to tell me what some others are without playing more!
-
-- Class: cmd_question
-  Output: |-
-    So what is 12 %% 5?
+    So play(), experiment, nxt(), and tell me what 12 %% 5 is, but play enough
+    that you think you can answer what some others are without playing more!
   CorrectAnswer: 2
   AnswerTests: omnitest(correctExpr = 2, strict = TRUE)
   Hint: |-
@@ -209,15 +205,16 @@
     and some simple arithmatic.  Come prepared to discuss in class.
 
 - Class: mult_question
-  Output: Respond Yes to send your instructor a log of your progress now
-    via Google Forms.
+  Output: Respond Yes to submit your assignment to Canvas.
   AnswerChoices: Yes;Yes
   CorrectAnswer: Yes
-  AnswerTests: submit_log()
+  AnswerTests: submit_log(360533)
   Hint: Respond Yes.
 
 - Class: text
   Output: |-
-    Great you've finished the first lesson!  You pressed the Submit button
-    in Google Forms right?  And if your submission failed via Google Forms
-    for any reason, please see above for instructions. Ready for more?
+    Great you've finished the first lesson! Check to see that your submission
+    was successful and there are no errors
+    above. If your submission failed to
+    submit automatically for any reason, please follow the instructions above.
+    Ready for more?

@@ -52,7 +52,7 @@ is_testing_vector_type <- function() {
     expr_uses_function('c')
 }
 
-submit_log <- function() {
+submit_log <- function(assign_id) {
 
   # Please edit the link below
   pre_fill_link <- "https://docs.google.com/forms/d/e/1FAIpQLSc-1D6a7mGA6nS3YQGiMpCLrFBbsPWz-CCh0Ua8dZHJfkAXCQ/viewform?usp=pp_url&entry.1317275434"
@@ -64,7 +64,7 @@ submit_log <- function() {
 
   p <- function(x, p, f, l = length(x)){if(l < p){x <- c(x, rep(f, p - l))};x}
 
-  temp <- tempfile()
+  temp <- tempfile("swirl", fileext = ".csv")
   log_ <- getLog()
   nrow_ <- max(unlist(lapply(log_, length)))
   log_tbl <- data.frame(user = rep(log_$user, nrow_),
@@ -78,10 +78,15 @@ submit_log <- function() {
                         stringsAsFactors = FALSE)
   write.csv(log_tbl, file = temp, row.names = FALSE)
   encoded_log <- base64encode(temp)
-  browseURL(paste0(pre_fill_link, encoded_log))
-  cat("If your submission did not work for any reason, please cut and paste\n",
-      "the following into an email to bbbruce@emory.edu:\n",
+  #browseURL(paste0(pre_fill_link, encoded_log))
+  set_canvas_domain("https://canvas.emory.edu")
+  try(submit_file_upload_assignment(80173, assign_id, "self", temp))
+  cat("Scroll back up and see if you submission was successful\n",
+      "or if there was an error.\n",
+      "If your submission did not work for any reason, please cut and paste\n",
+      "the following and submit to Canvas:\n",
       "filename = ", temp, "\n",
       "submission = read_csv(rawToChar(base64decode(\"", encoded_log, "\")))\n",
       sep = "")
 }
+

@@ -173,12 +173,16 @@
   Hint: |-
     Type y
 
-- Class: play_question
+- Class: cmd_question
   Output: |-
     Finally, you can not use one of the reserved words as names. You have seen a
     few of these already, e.g., TRUE, NaN. It could really wreck havoc on R if
     you could change the value of those names.  Try to assign 5 to the name
-    TRUE. (You are in play mode - type nxt() after you try it.)
+    TRUE. play(), then nxt() after you try it, finally type 1 to continue.
+  CorrectAnswer: 1
+  AnswerTests: omnitest(correctExpr = '1')
+  Hint: |-
+    Type 1 (i.e., one)
 
 - Class: text
   Output: |-
@@ -499,7 +503,7 @@
   Hint: |-
     Does is.vector sound right?
 
-- Class: play_question
+- Class: cmd_question
   Output: |-
     Remember that I said that a vector can only be made from the same atomic
     type? Try the following (and additional similar examples) and try to
@@ -512,20 +516,22 @@
     c("a", 3, TRUE)
 
     What is R doing? Why does this always "work"?
-    Come ready to discuss in class. (You are in play mode.  Type nxt() to
-    continue.)
+    Come ready to discuss in class. play() / nxt() / type 1 to continue.
+  CorrectAnswer: 1
+  AnswerTests: omnitest(correctExpr = '1')
+  Hint: |-
+    Type 1 (i.e., one)
 
 - Class: mult_question
-  Output: Respond Yes to send your instructor a log of your progress now
-    via Google Forms.
+  Output: Respond Yes to submit your assignment to Canvas.
   AnswerChoices: Yes;Yes
   CorrectAnswer: Yes
-  AnswerTests: submit_log()
+  AnswerTests: submit_log(366585)
   Hint: Respond Yes.
 
 - Class: text
   Output: |-
-    Great you've finished the lesson!  You pressed the Submit button
-    in Google Forms, right?  And if your submission failed via Google Forms
-    for any reason, please see above for instructions of what to do.
+    Check to see that your submission was successful and there are no errors
+    above. If your submission failed to
+    submit automatically for any reason, please follow the instructions above.
     Ready for more?
