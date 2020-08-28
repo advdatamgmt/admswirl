@@ -313,7 +313,7 @@
     worse an unsuspected logical error (a "bug") that may surprise you!
     The symbol != tests whether two things are not equal.
 
-    So, 3 == 3 is TRUE and 2 != 3 is FALSE.
+    So, 3 == 3 is TRUE and 2 != 3 is TRUE.
 
 - Class: mult_question
   Output: Let's test your knowledge.  What is 5 == 10?
