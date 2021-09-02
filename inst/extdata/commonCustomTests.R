@@ -80,7 +80,7 @@ submit_log <- function(assign_id) {
   encoded_log <- base64encode(temp)
   #browseURL(paste0(pre_fill_link, encoded_log))
   set_canvas_domain("https://canvas.emory.edu")
-  try(submit_file_upload_assignment(80173, assign_id, "self", temp))
+  try(submit_file_upload_assignment(93144, assign_id, "self", temp))
   cat("Scroll back up and see if you submission was successful\n",
       "or if there was an error.\n",
       "If your submission did not work for any reason, please cut and paste\n",

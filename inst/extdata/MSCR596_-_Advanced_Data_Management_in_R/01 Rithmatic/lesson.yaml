@@ -208,7 +208,7 @@
   Output: Respond Yes to submit your assignment to Canvas.
   AnswerChoices: Yes;Yes
   CorrectAnswer: Yes
-  AnswerTests: submit_log(360533)
+  AnswerTests: submit_log(523546)
   Hint: Respond Yes.
 
 - Class: text
