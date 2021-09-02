@@ -84,7 +84,7 @@ submit_log <- function(assign_id) {
   cat("Scroll back up and see if you submission was successful\n",
       "or if there was an error.\n",
       "If your submission did not work for any reason, please cut and paste\n",
-      "the following and submit to Canvas:\n",
+      "the following and email to the professor in Canvas:\n",
       "filename = ", temp, "\n",
       "submission = read_csv(rawToChar(base64decode(\"", encoded_log, "\")))\n",
       sep = "")
