@@ -163,17 +163,29 @@
 
     seem right?
 
-- Class: mult_question
+- Class: cmd_question
   Output: Now it is time to try out your skills.  Go into play mode
-    and figure out which data type the value that is returned
-    when you divide another number by zero.  (Don't forget to type nxt() when
-    you are ready to answer.)
+    and figure out which data type (character, logical, or numeric)
+    the value that is returned when you divide another number by zero.  (Don't forget to type nxt() when
+    you are ready to answer.)  Then, type "ok" (yes, with the quotes)
+    to continue.
+  CorrectAnswer: "ok"
+  AnswerTests: omnitest(correctExpr='"ok"')
+  Hint: |-
+    Type "ok" to continue.
+
+- Class: mult_question
+  Output: Which data type is returned when you divide another number by zero?
   AnswerChoices: character;logical;numeric
   AnswerTests: omnitest(correctVal="numeric")
   CorrectAnswer: numeric
-  Hint: While playing did you try each of the type testing functions
+  Hint: |-
+    While playing did you try each of the type testing functions
     (is.character, is.logical, and is.numeric) on a
-    number divided by zero?
+    number divided by zero?  Unfortunately, due to limitations of swirl
+    you can't go back into play() mode here.  Consider opening your R
+    program in a separate window if you know how to do that if you want to
+    play more.
 
 - Class: cmd_question
   Output: |-
@@ -182,13 +194,13 @@
     but get TRUE instead (i.e., what would you need to add surrounding the
     number 2 to get TRUE)?  Type the full expression using is.character and the
     number 2 that returns TRUE.
-  CorrectAnswer: is.character("Hi!")
+  CorrectAnswer: is.character("2")
   AnswerTests: omnitest(correctExpr='is.character("2")')
   Hint: |-
     What do you enclose a group of characters in to make R recognize it
     as a character type?
 
-- Class: mult_question
+- Class: cmd_question
   Output: |-
     Useful operators for the logical data type include &, |, and !.
     They are called the logical operators.
@@ -207,19 +219,17 @@
     (Remember to type nxt() to return.)
 
     First, what does the ! operator return when applied to TRUE?
-  AnswerChoices: TRUE;FALSE
   CorrectAnswer: FALSE
-  AnswerTests: omnitest(correctVal="FALSE")
+  AnswerTests: omnitest(correctExpr="FALSE")
   Hint: Did you play enough?
 
-- Class: mult_question
+- Class: cmd_question
   Output: So - what does the ! operator return when applied to FALSE?
-  AnswerChoices: TRUE;FALSE
   CorrectAnswer: TRUE
-  AnswerTests: omnitest(correctVal="TRUE")
+  AnswerTests: omnitest(correctExpr="TRUE")
   Hint: Did you play enough?
 
-- Class: mult_question
+- Class: cmd_question
   Output: |-
     Great work!  The ! operator returns the opposite value when applied to
     TRUE or FALSE.  Most of the time you'll hear ! called the "not" operator.
@@ -238,23 +248,22 @@
     (Remember to type nxt() to return.)
 
     Then, answer: what is TRUE & FALSE?
-  AnswerChoices: TRUE;FALSE
   CorrectAnswer: FALSE
-  AnswerTests: omnitest(correctVal="FALSE")
+  AnswerTests: omnitest(correctExpr="FALSE")
   Hint: Did you play enough? If not, you can play() more.
 
-- Class: mult_question
+- Class: cmd_question
   Output: What is TRUE | FALSE?
   AnswerChoices: TRUE;FALSE
   CorrectAnswer: TRUE
-  AnswerTests: omnitest(correctVal="TRUE")
+  AnswerTests: omnitest(correctExpr="TRUE")
   Hint: Did you play enough? If not, you can play() more.
 
-- Class: mult_question
+- Class: cmd_question
   Output: What is TRUE | TRUE?
   AnswerChoices: TRUE;FALSE
   CorrectAnswer: TRUE
-  AnswerTests: omnitest(correctVal="TRUE")
+  AnswerTests: omnitest(correctExpr="TRUE")
   Hint: Did you play enough? If not, you can play() more.
 
 - Class: mult_question
@@ -315,28 +324,25 @@
 
     So, 3 == 3 is TRUE and 2 != 3 is TRUE.
 
-- Class: mult_question
+- Class: cmd_question
   Output: Let's test your knowledge.  What is 5 == 10?
-  AnswerChoices: TRUE;FALSE
   CorrectAnswer: FALSE
-  AnswerTests: omnitest(correctVal="FALSE")
+  AnswerTests: omnitest(correctExpr="FALSE")
   Hint: If it isn't one then it is the other, right? :)
 
-- Class: mult_question
+- Class: cmd_question
   Output: Let's test your knowledge.  What is 8 > 10?
-  AnswerChoices: TRUE;FALSE
   CorrectAnswer: FALSE
-  AnswerTests: omnitest(correctVal="FALSE")
+  AnswerTests: omnitest(correctExpr="FALSE")
   Hint: If it isn't one then it is the other, right? :)
 
-- Class: mult_question
+- Class: cmd_question
   Output: Let's test your knowledge.  What is 100 < 101?
-  AnswerChoices: TRUE;FALSE
   CorrectAnswer: TRUE
-  AnswerTests: omnitest(correctVal="TRUE")
+  AnswerTests: omnitest(correctExpr="TRUE")
   Hint: If it isn't one then it is the other, right? :)
 
-- Class: mult_question
+- Class: cmd_question
   Output: |-
     OK, you clearly have it.  What about for characters?
 
@@ -345,12 +351,11 @@
     "a" < "b"
 
     is?
-  AnswerChoices: TRUE;FALSE
   CorrectAnswer: TRUE
-  AnswerTests: omnitest(correctVal="TRUE")
+  AnswerTests: omnitest(correctExpr="TRUE")
   Hint: If it isn't one then it is the other, right? :)
 
-- Class: mult_question
+- Class: cmd_question
   Output: |-
     So, that made sense but "B" is less than "a" does that
     make sense?  Perhaps not, but the capitals all are less than
@@ -361,12 +366,11 @@
     "b" > "!"
 
     ?
-  AnswerChoices: TRUE;FALSE
   CorrectAnswer: TRUE
-  AnswerTests: omnitest(correctVal="TRUE")
+  AnswerTests: omnitest(correctExpr="TRUE")
   Hint: If it isn't one then it is the other, right? :)
 
-- Class: mult_question
+- Class: cmd_question
   Output: |-
     So, that made sense but "B" is less than "a" does that
     make sense?  Perhaps not, but the capitals all are less than
@@ -377,21 +381,19 @@
     "A" == "a"
 
     ?
-  AnswerChoices: TRUE;FALSE
   CorrectAnswer: FALSE
-  AnswerTests: omnitest(correctVal="FALSE")
+  AnswerTests: omnitest(correctExpr="FALSE")
   Hint: If it isn't one then it is the other, right? :)
 
-- Class: mult_question
+- Class: cmd_question
   Output: |-
     Logicals can also be compared.  What do you think
 
     TRUE > FALSE
 
     is?
-  AnswerChoices: TRUE;FALSE
   CorrectAnswer: TRUE
-  AnswerTests: omnitest(correctVal="TRUE")
+  AnswerTests: omnitest(correctExpr="TRUE")
   Hint: If it isn't one then it is the other, right? :)
 
 - Class: text
