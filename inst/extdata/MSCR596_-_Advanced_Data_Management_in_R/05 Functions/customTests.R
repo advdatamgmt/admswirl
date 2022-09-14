@@ -41,7 +41,7 @@ test_cube <- function() {
   try({
     func <- get('cube', globalenv())
     tests <- c(
-      identical(sapply(-5:5, func), (-5:5) ^ 3)
+      all.equal(sapply(-5:5, func), (-5:5) ^ 3)
     )
     ok <- all(tests)
   }, silent = TRUE)

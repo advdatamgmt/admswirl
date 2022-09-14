@@ -453,7 +453,7 @@
     There are many possible ways to do it, but you need to write the code that
     will give you the answer without doing it by hand.
   CorrectAnswer: sum(subset(esoph, agegp == "25-34" & tobgp == "10-19")[, c("ncases", "ncontrols")])
-  AnswerTests: omnitest(correctVal = 20);expr_uses_func('subset')
+  AnswerTests: omnitest(correctVal = sum(subset(esoph, agegp == "25-34" & tobgp == "10-19")[, c("ncases", "ncontrols")]);expr_uses_func('subset')
   Hint: |-
     Don't overthink it.  It is a straightforward extension of the last problem.
     Calculate each of the two pieces separately even though it requires
