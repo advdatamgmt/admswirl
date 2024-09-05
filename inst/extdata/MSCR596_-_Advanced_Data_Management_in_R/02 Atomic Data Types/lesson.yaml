@@ -405,7 +405,7 @@
   Output: Respond Yes to submit your assignment to Canvas.
   AnswerChoices: Yes;Yes
   CorrectAnswer: Yes
-  AnswerTests: submit_log(818783)
+  AnswerTests: submit_log(981610)
   Hint: Respond Yes.
 
 - Class: text
