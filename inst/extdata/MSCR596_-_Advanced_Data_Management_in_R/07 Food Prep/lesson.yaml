@@ -371,7 +371,7 @@
     (threecho <- cbind(cholera1, cholera2, cholera3))
 
     Remember the extra set of parentheses just shows the result.
-  CorrectAnswer: threecho <- cbind(cholera1, cholera2, cholera3)
+  CorrectAnswer: (threecho <- cbind(cholera1, cholera2, cholera3))
   AnswerTests: omnitest(correctExpr = '(threecho <- cbind(cholera1, cholera2, cholera3))')
 
 - Class: cmd_question
